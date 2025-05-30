@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Santiago Ramón y Cajal</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+  /* Estilos para el modal de la galería */
+#modal {
+  display: none;
+  position: fixed;
+  z-index: 999;
+  left: 0; top: 0;
+  width: 100%; height: 100%;
+  background-color: rgba(0,0,0,0.8);
+  text-align: center;
+  padding-top: 60px;
+}
+
+#modal img {
+  max-width: 90%;
+  max-height: 80%;
+  border-radius: 10px;
+  box-shadow: 0 0 10px #000;
+  animation: fadeIn 0.4s ease;
+}
+
+#modal .close {
+  position: absolute;
+  top: 20px; right: 30px;
+  color: #fff;
+  font-size: 35px;
+  cursor: pointer;
+}
+
+#modal .close:hover {
+  color: #bbb;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.9);}
+  to { opacity: 1; transform: scale(1);}
+}
+
+  body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #e0eafc, #cfdef3);
+    margin: 0;
+    padding: 0;
+    color: #333;
+  }
+  nav {
+    background: #4a6fa5;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  }
+  nav a {
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    transition: background 0.3s ease;
+  }
+  nav a:hover {
+    background: #3a567c;
+  }
+  main {
+    max-width: 1000px;
+    margin: auto;
+    padding: 20px;
+  }
+  section {
+    display: none;
+    margin-bottom: 20px;
+    animation: fadeIn 0.6s ease;
+  }
+  section.active {
+    display: block;
+  }
+  h1, h2 {
+    color: #003366;
+    display: flex;
+    align-items: center;
+  }
+  h1 i, h2 i {
+    margin-right: 10px;
+    color: #4a6fa5;
+  }
+  .card {
+    background: #ffffffcc;
+    border-radius: 10px;
+    padding: 15px;
+    margin: 10px 0;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+  }
+  .card:hover {
+    transform: scale(1.05);
+  }
+  .card img {
+    width: 80%; /* más pequeñas */
+    border-radius: 10px;
+    display: block;
+    margin: auto;
+  }
+  #galeria .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 15px;
+  }
+  #galeria .grid .card img {
+    width: 100%;
+    border-radius: 10px;
+  }
+  #volver-arriba {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #4a6fa5;
+    color: white;
+    padding: 10px;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    transition: background 0.3s ease;
+  }
+  #volver-arriba:hover {
+    background: #3a567c;
+  }
+  iframe, video {
+    border-radius: 8px;
+    box-shadow: 0 0 15px #ffeb3baa;
+    width: 100%;
+    max-width: 800px;
+    display: block;
+    margin: auto;
+    height: 500px;
+  }
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px);}
+    to { opacity: 1; transform: translateY(0);}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="tablink" data-tab="inicio"><i class="fas fa-home"></i> Inicio</a>
+  <a class="tablink" data-tab="biografia"><i class="fas fa-user"></i> Biografía</a>
+  <a class="tablink" data-tab="neurona"><i class="fas fa-brain"></i> La Neurona</a>
+  <a class="tablink" data-tab="curiosidades"><i class="fas fa-lightbulb"></i> Curiosidades</a>
+  <a class="tablink" data-tab="multimedia"><i class="fas fa-video"></i> Video</a>
+  <a class="tablink" data-tab="galeria"><i class="fas fa-images"></i> Galería</a>
+  <a class="tablink" data-tab="contacto"><i class="fas fa-envelope"></i> Contacta conmigo</a>
+</nav>
+
+<main>
+  <section id="inicio" class="active">
+    <h1><i class="fas fa-flask"></i> Bienvenido a la página de Santiago Ramón y Cajal</h1>
+    <div class="card">
+      <p>Descubre la vida y los descubrimientos de uno de los mayores científicos de la historia. Navega por las pestañas para conocer más sobre su biografía, sus investigaciones sobre las neuronas y datos curiosos.</p>
+      <img src="cajal_retrato.jpg" alt="Retrato de Cajal">
+    </div>
+  </section>
+
+  <section id="biografia">
+    <h2><i class="fas fa-user"></i> Biografía</h2>
+    <div class="card">
+      <p>Santiago Ramón y Cajal fue uno de los científicos españoles más importantes de todos los tiempos y está considerado el padre de la neurociencia moderna. Nació el 1 de mayo de 1852 en Petilla de Aragón, un pequeño pueblo de Navarra. Su padre, Justo Ramón, era un médico que trabajaba en diferentes lugares, por lo que la familia se mudó varias veces mientras Santiago era pequeño. Desde muy joven, Santiago mostró una gran curiosidad por todo lo que le rodeaba. Le gustaba mucho dibujar y crear cosas, como juguetes e inventos con sus propias manos.
+
+       A pesar de ser un niño muy inquieto e inteligente, Santiago no era un buen estudiante en la escuela. Tenía problemas con la disciplina y prefería pasar el tiempo en la naturaleza o dibujando en lugar de estudiar las materias escolares. Su padre, que quería que siguiera sus pasos en la medicina, se preocupaba por su futuro y lo animaba a estudiar con más esfuerzo. Aun así, Santiago siempre fue muy curioso y nunca dejó de hacer preguntas ni de investigar por su cuenta.
+
+       Cuando terminó la educación básica, su padre lo matriculó en la Facultad de Medicina de la Universidad de Zaragoza. Allí empezó a interesarse más por las ciencias. Se graduó como médico en 1873, cuando tenía solo 21 años. Después de eso, trabajó como médico militar durante la Tercera Guerra Carlista, lo que le permitió viajar y aprender sobre distintas enfermedades y problemas de salud que afectaban a la gente.
+
+       Sin embargo, su verdadera pasión era la investigación científica. Cuando terminó su servicio militar, se dedicó a estudiar cómo funciona el sistema nervioso, que es la parte del cuerpo que controla todos nuestros movimientos, pensamientos y emociones. En aquella época, el sistema nervioso era un gran misterio para los científicos, porque no se conocían bien las células que lo forman ni cómo funcionaban.
+
+       Santiago Ramón y Cajal empezó a investigar las células del cerebro, llamadas neuronas. Para poder verlas bien, utilizó un método especial llamado tinción de Golgi, inventado por el científico italiano Camillo Golgi. Este método consiste en teñir las células con una sustancia química para que se vean mejor al microscopio. Gracias a esta técnica, Cajal pudo ver las neuronas con mucha más claridad que los científicos anteriores.
+
+       Cajal no solo observó las neuronas, sino que también las dibujó con mucho cuidado y detalle. Sus dibujos eran tan buenos y precisos que todavía hoy se usan en los libros de medicina y biología. Gracias a sus observaciones y dibujos, Cajal descubrió que las neuronas no están conectadas de forma continua, como se pensaba antes. Él demostró que las neuronas son células independientes que se comunican entre sí a través de conexiones llamadas sinapsis.
+
+       Esta idea se conoce como la doctrina de la neurona, y cambió por completo la manera en que los científicos entendían el cerebro y el sistema nervioso. Antes de Cajal, se pensaba que el cerebro era como una red continua, sin separación entre sus partes. Pero él demostró que el cerebro está formado por muchas células individuales que trabajan juntas. Sus descubrimientos ayudaron a entender mejor cómo funcionan nuestros pensamientos, emociones y movimientos.</p>
+      <img src="cajal_dibujo.jpg" alt="Dibujo de Cajal">
+       <p>En 1906, Santiago Ramón y Cajal recibió el Premio Nobel de Fisiología o Medicina, que compartió con Camillo Golgi. Fue el primer científico español en ganar este premio, lo que lo convirtió en un héroe de la ciencia en nuestro país. Su trabajo inspiró a muchos otros científicos a seguir estudiando el cerebro y ayudó a que la ciencia española se hiciera más conocida en el mundo.
+
+       Además de sus descubrimientos en neurociencia, Cajal también fue un gran profesor y escritor. Escribió varios libros para explicar sus investigaciones y compartir sus ideas con otros científicos y estudiantes. Uno de sus libros más conocidos se llama “Textura del sistema nervioso del hombre y de los vertebrados”, donde describió con detalle cómo están formadas las neuronas y cómo funcionan. También escribió otro libro llamado “Recuerdos de mi vida”, en el que cuenta su historia personal y cómo llegó a ser científico.
+
+       Cajal siempre animó a sus estudiantes a ser curiosos, a no conformarse con lo que ya se sabe y a pensar por sí mismos. Gracias a su forma de enseñar y su pasión por la ciencia, creó una importante escuela de investigadores en España que continuaron sus estudios y siguieron explorando los misterios del cerebro.
+
+       A lo largo de su vida, Santiago Ramón y Cajal recibió muchos premios y reconocimientos, tanto en España como en otros países. Fue miembro de muchas academias y sociedades científicas de todo el mundo. Pero lo más importante para él no eran los premios, sino seguir aprendiendo y compartiendo sus descubrimientos con los demás.
+
+       Cajal murió en Madrid el 17 de octubre de 1934, a los 82 años de edad. Aunque han pasado muchos años desde entonces, sus descubrimientos siguen siendo fundamentales para entender cómo funciona el cerebro. Gracias a él, hoy sabemos mucho más sobre las neuronas y cómo se comunican entre ellas, lo que ha permitido avanzar en el tratamiento de enfermedades del sistema nervioso.
+
+       Su historia nos enseña que la curiosidad y el esfuerzo son claves para aprender cosas nuevas y mejorar el mundo en el que vivimos. También nos muestra que, aunque al principio no era un buen estudiante, su pasión por la ciencia y sus ganas de investigar lo llevaron a convertirse en uno de los científicos más importantes de la historia. Su vida es un ejemplo para todos aquellos que sueñan con descubrir cosas nuevas y hacer del mundo un lugar mejor.</p>
+    </div>
+  </section>
+
+  <section id="neurona">
+    <h2><i class="fas fa-brain"></i> ¿Cómo funciona la neurona?</h2>
+    <div class="card">
+      <p>Santiago Ramón y Cajal fue un científico español que revolucionó nuestra forma de entender el cerebro y el sistema nervioso. Antes de sus descubrimientos, los científicos no tenían claro cómo funcionaba el cerebro, ni cómo estaban organizadas sus células. Gracias a su trabajo, hoy sabemos que el cerebro está formado por muchas células llamadas neuronas, y que estas son las encargadas de enviar y recibir información.
+
+       Las neuronas son unas células muy especiales. Tienen un cuerpo central, llamado soma, del que salen unas ramitas llamadas dendritas y una fibra larga llamada axón. Las dendritas reciben señales de otras neuronas, mientras que el axón envía las señales a otras células. Juntas, las neuronas forman una red increíblemente compleja, que permite que podamos pensar, movernos, recordar y sentir.
+
+       Antes de los estudios de Cajal, muchos científicos pensaban que el cerebro era como una red continua, sin separación entre sus partes. Pero Cajal descubrió que no es así. Usando un microscopio y un método especial para teñir las células, que le permitía verlas con mucha claridad, pudo observar que las neuronas son células separadas y distintas. Aunque están muy cerca unas de otras, no están unidas directamente. Esto significa que cada neurona es una célula independiente.
+
+       Cajal también descubrió que las neuronas se comunican entre ellas a través de unas conexiones llamadas sinapsis. Estas sinapsis permiten que los impulsos eléctricos y químicos pasen de una neurona a otra, pero siempre respetando la separación entre ellas. Gracias a esta separación, el cerebro puede organizar la información de una forma muy ordenada.</p>
+
+            <img src="foto cajal 12.jpg" alt="Red neuronal artística">
+      <p> Este gran descubrimiento se llamó la doctrina de la neurona. Fue muy importante porque cambió la forma de estudiar el cerebro y abrió el camino para entender cómo funcionan los pensamientos, la memoria, el aprendizaje y las emociones. Además, sirvió de base para investigar muchas enfermedades que afectan al sistema nervioso, como el Alzheimer o la epilepsia.
+
+       Los dibujos de Cajal fueron también muy importantes. Como era un excelente dibujante, representó con mucho detalle cómo eran las neuronas y sus conexiones. Sus dibujos todavía se usan hoy en día en los libros de biología y medicina. Gracias a ellos, podemos aprender fácilmente cómo es una neurona y cómo se conectan unas con otras.
+
+       Además de demostrar que las neuronas son células independientes, Cajal descubrió que estas células cambian y se adaptan con el uso. Esto se llama plasticidad neuronal. Significa que cuando aprendemos algo nuevo o practicamos mucho, las neuronas pueden fortalecer sus conexiones y mejorar la comunicación entre ellas. Por eso, cuanto más estudiamos o entrenamos, mejor funciona nuestro cerebro.
+
+       En resumen, los descubrimientos de Santiago Ramón y Cajal sobre las neuronas nos ayudaron a entender cómo funciona nuestro cerebro y cómo podemos cuidarlo mejor. Su trabajo sigue siendo muy importante y nos recuerda que la curiosidad y la observación pueden ayudarnos a descubrir cosas maravillosas.</p>
+    </div>
+  </section>
+
+  <section id="curiosidades">
+    <h2><i class="fas fa-lightbulb"></i> Datos Curiosos</h2>
+    <div class="card">
+      <ul>
+        <li><strong>Artista de la ciencia:</strong> Sus dibujos a mano alzada siguen asombrando a científicos hoy en día.</li>
+        <li><strong>Un Nobel compartido:</strong> Ganó el Nobel junto a Camillo Golgi, aunque ambos tenían teorías opuestas sobre las neuronas.</li>
+        <li><strong>Curioso e inquieto:</strong> También fue un apasionado de la fotografía y la literatura.</li>
+        <li><strong>Estudió en Zaragoza:</strong> Allí se licenció en medicina, aunque empezó la carrera con dudas sobre si sería buen médico.</li>
+        <li><strong>Descubrió la doctrina de la neurona:</strong> Fue el primero en demostrar que las neuronas son células independientes.</li>
+        <li><strong> Fue médico militar:</strong>Durante la Tercera Guerra Carlista, trabajó como médico del ejército y atendió a muchos soldados heridos.</li>
+        <li><strong>Inventaba juguetes:</strong> Cuando era pequeño, fabricaba sus propios juguetes e incluso cañones de juguete con madera y cuerda.</li>
+        <li><strong> Era un gran maestro:</strong> Siempre animó a sus alumnos a pensar por sí mismos y no tener miedo de proponer nuevas ideas.</li>        
+        <li><strong>Escribió su autobiografía: </strong> Se titula “Recuerdos de mi vida” y en ella cuenta cómo llegó a ser científico.
+
+</li>
+
+
+      </ul>
+      <img src="foto cajal 11.jpg" alt="Ilustración artística de neuronas">
+    </div>
+  </section>
+
+  <section id="multimedia">
+    <h2><i class="fas fa-video"></i> Video sobre Santiago Ramón y Cajal</h2>
+    <div class="card">
+      <iframe src="https://www.youtube.com/embed/W6nwsAHc7J8" frameborder="0" allowfullscreen></iframe>
+    </div>
+  </section>
+
+ <section id="galeria">
+  <h2><i class="fas fa-images"></i> Galería</h2>
+  <div class="card">
+    <img src="galeria1.jpg" alt="Imagen 1" onclick="openModal(this.src)">
+    <p>Dibujo de Cajal de su observación en el microscopio</p>
+  </div>
+  <div class="card">
+    <img src="galeria2.jpg" alt="Imagen 2" onclick="openModal(this.src)">
+    <p>Dibujo de Cajal de su observación en el microscopio</p>
+  </div>
+  <div class="card">
+    <img src="galeria3.jpg" alt="Imagen 1" onclick="openModal(this.src)">
+    <p>Dibujo de Cajal de su observación en el microscopio</p>
+  </div><div class="card">
+    <img src="galeria4.jpg" alt="Imagen 1" onclick="openModal(this.src)">
+    <p>Dibujo de Cajal de su observación en el microscopio</p>
+  </div><div class="card">
+    <img src="galeria5.jpg" alt="Imagen 1" onclick="openModal(this.src)">
+    <p>Dibujo de Cajal de su observación en el microscopio</p>
+  </div><div class="card">
+    <img src="galeria6.jpg" alt="Imagen 1" onclick="openModal(this.src)">
+    <p>Dibujo de Cajal de su observación en el microscopio</p>
+  </div><div class="card">
+    <img src="galeria7.jpg" alt="Imagen 1" onclick="openModal(this.src)">
+    <p>Dibujo de Cajal de su observación en el microscopio</p>
+  </div><div class="card">
+    <img src="galeria8.jpg" alt="Imagen 1" onclick="openModal(this.src)">
+    <p>Santiago de culturista</p>
+  </div>
+  <!-- Puedes añadir más imágenes igual, con el evento onclick="openModal(this.src)" -->
+</section>
+
+
+
+
+  <section id="contacto">
+    <h2><i class="fas fa-envelope"></i> Contacta conmigo</h2>
+    <div class="card">
+      <p>¿Quieres saber más o compartir información? ¡Estoy encantado de saber de ti!</p>
+      <p><strong>Email:</strong> nicolas.herguera2@gmail.com</p>
+      <p><strong>Teléfono:</strong> +34 676651852</p>
+    </div>
+  </section>
+</main>
+
+<div id="volver-arriba" title="Volver arriba"><i class="fas fa-arrow-up"></i></div>
+
+<script>
+  const links = document.querySelectorAll('.tablink');
+  const sections = document.querySelectorAll('main section');
+  const volverArriba = document.getElementById('volver-arriba');
+
+  links.forEach(link => {
+    link.addEventListener('click', () => {
+      const tab = link.dataset.tab;
+      sections.forEach(sec => {
+        if (sec.id === tab) {
+          sec.classList.add('active');
+        } else {
+          sec.classList.remove('active');
+        }
+      });
+    });
+  });
+
+  volverArriba.addEventListener('click', () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  });
+</script>
+<!-- Modal para ver las imágenes en grande -->
+<div id="modal">
+  <span class="close" onclick="closeModal()">&times;</span>
+  <img id="modal-img" src="" alt="Imagen ampliada">
+</div>
+<script>
+  function openModal(src) {
+    document.getElementById('modal').style.display = 'block';
+    document.getElementById('modal-img').src = src;
+  }
+
+  function closeModal() {
+    document.getElementById('modal').style.display = 'none';
+  }
+
+  // Para que al hacer clic fuera de la imagen también se cierre
+  window.addEventListener('click', function(e) {
+    const modal = document.getElementById('modal');
+    if (e.target === modal) {
+      closeModal();
+    }
+  });
+</script>
+
+</body>
+</html>
